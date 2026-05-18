@@ -2,11 +2,11 @@ NAME1 = push-swap
 NAME2 = checker
 
 build:
-	go build -o $(NAME1) ./push-swap
-	go build -o $(NAME2) ./checker
+	go build -o $(NAME1) ./cmd/push-swap
+	go build -o $(NAME2) ./cmd/checker
 
 run:
-	go run ./push-swap
+	go run ./cmd/push-swap
 
 test:
 	go test ./...
