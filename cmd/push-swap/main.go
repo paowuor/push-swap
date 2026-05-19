@@ -1,9 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
+	"paowuor-push-swap/internal/models"
 	"paowuor-push-swap/internal/parser"
+	"paowuor-push-swap/internal/stack"
 	"paowuor-push-swap/internal/utils"
 )
 
@@ -14,11 +17,25 @@ func main() {
 		return
 	}
 
-	if len(numbers) == 0 {
+	if len(numbers) == 0 || utils.IsSorted(numbers) {
 		return
 	}
 
-	if utils.IsSorted(numbers) {
-		return
+	a := models.Stack{
+		Name:   "a",
+		Values: numbers,
+	}
+
+	b := models.Stack{
+		Name: "b",
+	}
+
+	var ops []string
+
+	stack.Sa(&a, &ops)
+	stack.Pb(&a, &b, &ops)
+
+	for _, op := range ops {
+		fmt.Println(op)
 	}
 }
