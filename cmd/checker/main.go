@@ -1,9 +1,14 @@
 package main
 
 import (
+	"bufio"
+	"fmt"
 	"os"
 
+	ck "paowuor-push-swap/internal/checker"
+	"paowuor-push-swap/internal/models"
 	"paowuor-push-swap/internal/parser"
+	"paowuor-push-swap/internal/stack"
 	"paowuor-push-swap/internal/utils"
 )
 
@@ -18,5 +23,35 @@ func main() {
 		return
 	}
 
-	_ = numbers
+	a := models.Stack{
+		Name:   "a",
+		Values: numbers,
+	}
+
+	b := models.Stack{
+		Name: "b",
+	}
+
+	scanner := bufio.NewScanner(os.Stdin)
+
+	instructions := ck.ReadInstructions(scanner)
+
+	for _, instruction := range instructions {
+		if !ck.IsValidInstruction(instruction) {
+			utils.PrintError()
+			return
+		}
+
+		err := stack.Execute(instruction, &a, &b)
+		if err != nil {
+			utils.PrintError()
+			return
+		}
+	}
+
+	if utils.IsStackSorted(a.Values) && len(b.Values) == 0 {
+		fmt.Println("OK")
+	} else {
+		fmt.Println("KO")
+	}
 }
