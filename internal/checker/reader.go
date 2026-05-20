@@ -6,7 +6,13 @@ func ReadInstructions(scanner *bufio.Scanner) []string {
 	var instructions []string
 
 	for scanner.Scan() {
-		instructions = append(instructions, scanner.Text())
+		line := scanner.Text()
+
+		if line == "" {
+			continue
+		}
+
+		instructions = append(instructions, line)
 	}
 
 	return instructions
