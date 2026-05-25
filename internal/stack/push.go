@@ -1,6 +1,6 @@
 package stack
 
-import "paowuor-push-swap/internal/models"
+import "push-swap/internal/models"
 
 func Pa(a, b *models.Stack, ops *[]string) {
 	if len(b.Values) == 0 {

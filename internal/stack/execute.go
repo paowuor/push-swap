@@ -3,7 +3,7 @@ package stack
 import (
 	"errors"
 
-	"paowuor-push-swap/internal/models"
+	"push-swap/internal/models"
 )
 
 func Execute(op string, a, b *models.Stack) error {

@@ -8,7 +8,6 @@ import (
     "push-swap/internal/algorithms"
 	"push-swap/internal/models"
 	"push-swap/internal/parser"
-	"push-swap/internal/stack"
 	"push-swap/internal/utils"
 )
 

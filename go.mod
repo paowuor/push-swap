@@ -1,3 +1,3 @@
-module paowuor-push-swap
+module push-swap
 
 go 1.22.2

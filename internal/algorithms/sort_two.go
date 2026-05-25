@@ -12,4 +12,5 @@ func SortTwo(a *models.Stack, ops *[]string) {
 
 	if a.Values[0] > a.Values[1] {
 		stack.Sa(a, ops)
+	}
 }

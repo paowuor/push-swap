@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"os"
 
-	ck "paowuor-push-swap/internal/checker"
-	"paowuor-push-swap/internal/models"
-	"paowuor-push-swap/internal/parser"
-	"paowuor-push-swap/internal/stack"
-	"paowuor-push-swap/internal/utils"
+	ck "push-swap/internal/checker"
+	"push-swap/internal/models"
+	"push-swap/internal/parser"
+	"push-swap/internal/stack"
+	"push-swap/internal/utils"
 )
 
 func main() {

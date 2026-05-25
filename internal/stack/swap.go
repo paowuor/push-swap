@@ -1,6 +1,6 @@
 package stack
 
-import "paowuor-push-swap/internal/models"
+import "push-swap/internal/models"
 
 func Sa(a *models.Stack, ops *[]string) {
 	if len(a.Values) < 2 {
