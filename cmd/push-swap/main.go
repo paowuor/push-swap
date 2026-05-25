@@ -3,11 +3,13 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
-	"paowuor-push-swap/internal/models"
-	"paowuor-push-swap/internal/parser"
-	"paowuor-push-swap/internal/stack"
-	"paowuor-push-swap/internal/utils"
+    "push-swap/internal/algorithms"
+	"push-swap/internal/models"
+	"push-swap/internal/parser"
+	"push-swap/internal/stack"
+	"push-swap/internal/utils"
 )
 
 func main() {
@@ -21,9 +23,11 @@ func main() {
 		return
 	}
 
+	normalized := algorithms.Normalize(numbers)
+
 	a := models.Stack{
 		Name:   "a",
-		Values: numbers,
+		Values: normalized,
 	}
 
 	b := models.Stack{
@@ -32,10 +36,21 @@ func main() {
 
 	var ops []string
 
-	stack.Sa(&a, &ops)
-	stack.Pb(&a, &b, &ops)
+	size := len(a.Values)
 
-	for _, op := range ops {
-		fmt.Println(op)
+	if size == 2 {
+		algorithms.SortTwo(&a, &ops)
+	} else if size == 3 {
+		algorithms.SortThree(&a, &ops)
+	} else if size <= 5 {
+		algorithms.SortFive(&a, &b, &ops)
+	} else {
+		algorithms.RadixSort(&a, &b, &ops)
 	}
+
+	fmt.Println(strings.Join(ops, "\n"))
+
+	if len(ops) > 0 {
+		fmt.Println()
+	}		
 }
