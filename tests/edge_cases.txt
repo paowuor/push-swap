@@ -1,0 +1,26 @@
+# Empty input
+./push-swap
+
+# Single number
+./push-swap 1
+
+# Already sorted
+./push-swap 1 2 3
+
+# Reverse sorted
+./push-swap 5 4 3 2 1
+
+# Duplicate numbers
+./push-swap 1 2 2
+
+# Invalid input
+./push-swap 1 two 3
+
+# Large numbers
+./push-swap 999999999
+
+# Negative numbers
+./push-swap -5 -10 3 2
+
+# Checker invalid instruction
+echo -e "invalid" | ./checker 3 2 1
