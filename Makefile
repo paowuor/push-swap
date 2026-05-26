@@ -11,6 +11,12 @@ run:
 test:
 	go test ./...
 
+random:
+	./tests/random_test.sh
+
+benchmark:
+	./tests/benchmark.sh
+
 clean:
 	rm -f $(NAME1) $(NAME2)
 
