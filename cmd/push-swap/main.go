@@ -22,11 +22,9 @@ func main() {
 		return
 	}
 
-	normalized := algorithms.Normalize(numbers)
-
 	a := models.Stack{
 		Name:   "a",
-		Values: normalized,
+		Values: numbers,
 	}
 
 	b := models.Stack{
@@ -47,7 +45,7 @@ func main() {
 		algorithms.RadixSort(&a, &b, &ops)
 	}
 
-	ops = algorithms.OptimizeOperations(ops)
+	//ops = algorithms.OptimizeOperations(ops)
 
 	fmt.Println(strings.Join(ops, "\n"))
 
