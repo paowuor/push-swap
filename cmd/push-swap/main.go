@@ -47,6 +47,8 @@ func main() {
 		algorithms.RadixSort(&a, &b, &ops)
 	}
 
+	ops = algorithms.OptimizeOperations(ops)
+
 	fmt.Println(strings.Join(ops, "\n"))
 
 	if len(ops) > 0 {
